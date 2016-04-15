@@ -15,6 +15,6 @@ title: 在github上使用jekyll做自己的github
 5. 这个时候访问username.github.io，修改_config.yml文件，然后就可以看到页面了。
 6. 以后在_post添加文件,year-month-day-title.md这样的命名，然后添加提交，github会帮你进行生成页面。自己不用进行build
 7. 补充下本地运行。git clone下来自己的工程，切换到目录下，运行jekyll server。我遇到的2个问题是cannot load such file -- jekyll-sitemap。 直接gem install jekyll-sitemap。反正缺少哪个文件，就安装哪个文件。然后就可以了。
-8. 又一个在线工具不错，http://prose.io 想用的也可以尝试下。
+8. 有一个在线工具不错，http://prose.io 想用的也可以尝试下。
 9. 我用编辑md文件的IDE是Mou，可以一边编辑一边预览。
 
