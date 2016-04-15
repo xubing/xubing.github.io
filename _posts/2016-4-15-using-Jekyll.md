@@ -10,7 +10,7 @@ title: 在github上使用jekyll做自己的github
 ### Jekyll的安装使用
 1. 参见https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/的文章。
 2. 不使用模版的步骤。jekyll new  ，jekyll build，jekyll server ,本地就可以查看了。然后git 提交自己的所有文件。
-3.Jekyll的模版。先fork 模版 https://github.com/barryclark/jekyll-now
+3. Jekyll的模版。先fork 模版 https://github.com/barryclark/jekyll-now
 4. 然后在自己的工程中点开setting，然后rename成 username.github.io
 5. 这个时候访问username.github.io，修改_config.yml文件，然后就可以看到页面了。
 6. 以后在_post添加文件,year-month-day-title.md这样的命名，然后添加提交，github会帮你进行生成页面。自己不用进行build
