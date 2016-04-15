@@ -17,4 +17,5 @@ title: 在github上使用jekyll做自己的github
 7. 补充下本地运行。git clone下来自己的工程，切换到目录下，运行jekyll server。我遇到的2个问题是cannot load such file -- jekyll-sitemap。 直接gem install jekyll-sitemap。反正缺少哪个文件，就安装哪个文件。然后就可以了。
 8. 有一个在线工具不错，http://prose.io 想用的也可以尝试下。
 9. 我用编辑md文件的IDE是Mou，可以一边编辑一边预览。
+10. 有的时候本地运行出现错误。可以用sudo gem cleanup ，bundle exec jekyll serve进行清理启动
 

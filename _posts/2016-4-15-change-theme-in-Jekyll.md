@@ -1,8 +1,13 @@
 ---
 layout: post
-title: 更欢主题Skinny Bones Jekyll Starter
+title: 更换主题Skinny Bones Jekyll Starter
 ---
-### 
-https://github.com/mmistakes/skinny-bones-jekyll
+### 更换
+很多 [主题](https://github.com/jekyll/jekyll/wiki/themes) 可以进行查看
+看好几个主题
+1. pixyll 我现在用的
+2. White Paper
+3. 
+
 
 
