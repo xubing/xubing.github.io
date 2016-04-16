@@ -14,7 +14,7 @@
 body {
   padding-top: 80px;
   color: #ddd;
-  background-color: #111111;
+  background-color: #222522;
   background-image: url(./pics/triangles.png);
 }
 .copyright {
@@ -38,7 +38,7 @@ body {
 }
 
 .well {
-  background-color: #444;
+  background-color: #333;
   box-shadow: 0px 0px 0px 0px, 0px 8px 16px rgba(0, 0, 0, 0.2);
   border: 0px;
   border-radius: 6px;
@@ -93,7 +93,7 @@ blockquote {
 //                    Links
 //********************************************************
 a {
-  color: #0078bf;
+  color: #3CA2A2;
 }
 a:hover {
   color: #3CA2A2;
@@ -132,7 +132,7 @@ h2.post-title {
 div.post-meta {
   border: 1px solid #666666;
   border-width: 1px 0;
-  margin: 0 0 20px;
+  margin: 0 0 20px;  
   ul {
     display: inline;
     padding-left: 0px;
@@ -291,6 +291,7 @@ nav.shrink .navbar-toggle {
 
 .content{
   padding-bottom: 250px;
+  color: #aaa;
 }
 
 .key {
