@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 更换主题Skinny Bones Jekyll Starter
+description: 替换Jekyll主题，不一样的色彩。自己修改好看的css
 ---
 ### 更换
 很多 [主题](https://github.com/jekyll/jekyll/wiki/themes) 可以进行查看
