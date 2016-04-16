@@ -3,8 +3,8 @@ title:       Xubing's Blog
 email:       your_email@example.com
 author:      Xubing
 description: "Code change world."
-baseurl:     ""
-url:         ""
+baseurl:     "/"
+url:         "/"
 date_format: "%b %-d, %Y"
 
 # Google services
@@ -18,7 +18,7 @@ bing_verification:
 
 # Optional features
 animated:             true
-show_related_posts:   true
+show_related_posts:   false
 show_post_footers:    false
 show_social_icons:    false
 ajaxify_contact_form: false
