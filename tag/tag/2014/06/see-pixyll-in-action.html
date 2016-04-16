@@ -1,0 +1,312 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Blog Name</title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://streetturtle.github.io/jekyll-clean-dark/js/jquery.min.js"></script>
+  <script src="http://streetturtle.github.io/jekyll-clean-dark/js/bootstrap.min.js"></script>
+  <script src="http://streetturtle.github.io/jekyll-clean-dark/js/header.js"></script>
+  <script src="http://streetturtle.github.io/jekyll-clean-dark/js/toc.js"></script>
+  <link href="http://streetturtle.github.io/jekyll-clean-dark/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://streetturtle.github.io/jekyll-clean-dark/css/theme.css" rel="stylesheet">
+  <link href="http://streetturtle.github.io/jekyll-clean-dark/css/syntax.css" rel="stylesheet">
+  <link href="http://streetturtle.github.io/jekyll-clean-dark/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://streetturtle.github.io/jekyll-clean-dark/">Blog Name</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="http://streetturtle.github.io/jekyll-clean-dark/">/home</a></li>
+          <li><a href="http://streetturtle.github.io/jekyll-clean-dark/archive.html">/archive</a></li>
+          <li><a href="http://streetturtle.github.io/jekyll-clean-dark/tags.html">/tags</a></li>
+          <li><a href="http://streetturtle.github.io/jekyll-clean-dark/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="wrapper">
+  <div class="content">
+    <div class="container container-center">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="article">
+            <div class="well">
+              <h1><a href="http://streetturtle.github.io/jekyll-clean-dark/2014/06/see-pixyll-in-action">Pixyll in Action</a></h1>
+              <div class="post-meta">
+                <div class="post-time">
+                  <i class="fa fa-calendar"></i>
+                  <time>10 Jun 2014</time>
+                </div>
+                <ul>
+                  
+                </ul>
+              </div>
+              <div class="post-content">
+                <div id="toc" class="toc"></div>
+                <p>There is a significant amount of subtle, yet precisely calibrated, styling to ensure<br />
+that your content is emphasized while still looking aesthetically pleasing.</p>
+
+<p>All links are easy to <a href="#">locate and discern</a>, yet don’t detract from the <a href="#">harmony<br />
+of a paragraph</a>. The <em>same</em> goes for italics and <strong>bold</strong> elements. Even the the strikeout<br />
+works if <del>for some reason you need to update your post</del>. For consistency’s sake,<br />
+<ins>The same goes for insertions</ins>, of course.</p>
+
+<h3 id="code-with-syntax-highlighting">Code, with syntax highlighting</h3>
+
+<p>Here’s an example of some ruby code with line anchors.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># The most awesome of classes</span>
+<span class="k">class</span> <span class="nc">Awesome</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="kp">include</span> <span class="no">EvenMoreAwesome</span>
+
+  <span class="n">validates_presence_of</span> <span class="ss">:something</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">email_format: </span><span class="kp">true</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="nb">name</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">email</span> <span class="o">=</span> <span class="n">email</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="nb">name</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">favorite_number</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="nb">puts</span> <span class="s1">'created awesomeness'</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">email_format</span>
+    <span class="n">email</span> <span class="o">=~</span> <span class="sr">/\S+@\S+\.\S+/</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Here’s some CSS:</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.foobar</span> <span class="p">{</span>
+  <span class="c">/* Named colors rule */</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">tomato</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Here’s some JavaScript:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">isPresent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'is-present'</span><span class="p">)</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">doStuff</span><span class="p">(</span><span class="nx">things</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">isPresent</span><span class="p">(</span><span class="nx">things</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">doOtherStuff</span><span class="p">(</span><span class="nx">things</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Here’s some HTML:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"m0 p0 bg-blue white"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"h1"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+<h1 id="headings">Headings!</h1>
+
+<p>They’re responsive, and well-proportioned (in <code class="highlighter-rouge">padding</code>, <code class="highlighter-rouge">line-height</code>, <code class="highlighter-rouge">margin</code>, and <code class="highlighter-rouge">font-size</code>).<br />
+They also heavily rely on the awesome utility, <a href="http://www.basscss.com/">BASSCSS</a>.</p>
+
+<h5 id="they-draw-the-perfect-amount-of-attention">They draw the perfect amount of attention</h5>
+
+<p>This allows your content to have the proper informational and contextual hierarchy. Yay.</p>
+
+<h3 id="there-are-lists-too">There are lists, too</h3>
+
+<ul>
+  <li>Apples</li>
+  <li>Oranges</li>
+  <li>Potatoes</li>
+  <li>Milk</li>
+</ul>
+
+<ol>
+  <li>Mow the lawn</li>
+  <li>Feed the dog</li>
+  <li>Dance</li>
+</ol>
+
+<h3 id="images-look-great-too">Images look great, too</h3>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1424573/3378137/abac6d7c-fbe6-11e3-8e09-55745b6a8176.png" alt="desk" /></p>
+
+<p><em><img src="https://cloud.githubusercontent.com/assets/1424573/3378137/abac6d7c-fbe6-11e3-8e09-55745b6a8176.png" alt="desk" /></em></p>
+
+<h3 id="there-are-also-pretty-colors">There are also pretty colors</h3>
+
+<p>Also the result of <a href="http://www.basscss.com/">BASSCSS</a>, you can <span class="bg-dark-gray white">highlight</span> certain components<br />
+of a <span class="red">post</span> <span class="mid-gray">with</span> <span class="green">CSS</span> <span class="orange">classes</span>.</p>
+
+<p>I don’t recommend using blue, though. It looks like a <span class="blue">link</span>.</p>
+
+<h3 id="footnotes">Footnotes!</h3>
+
+<p>Markdown footnotes are supported, and they look great! Simply put e.g. <code class="highlighter-rouge">[^1]</code> where you want the footnote to appear,<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> and then add<br />
+the reference at the end of your markdown.</p>
+
+<h3 id="stylish-blockquotes-included">Stylish blockquotes included</h3>
+
+<p>You can use the markdown quote syntax, <code class="highlighter-rouge">&gt;</code> for simple quotes.</p>
+
+<blockquote>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis porta mauris.</p>
+</blockquote>
+
+<p>However, you need to inject html if you’d like a citation footer. I will be working on a way to<br />
+hopefully sidestep this inconvenience.</p>
+
+<blockquote>
+  <p>
+    Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.
+  </p>
+  <footer><cite title="Antoine de Saint-Exupéry">Antoine de Saint-Exupéry</cite></footer>
+</blockquote>
+
+<h3 id="theres-more-being-added-all-the-time">There’s more being added all the time</h3>
+
+<p>Checkout the <a href="https://github.com/johnotander/pixyll">Github repository</a> to request,<br />
+or add, features.</p>
+
+<p>Happy writing.</p>
+
+<hr />
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Important information that may distract from the main text can go in footnotes. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 hidden-xs">
+          <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/jekyll-clean-dark/2016/04/markdown-language">Markdown基本语法</a></li>
+    
+    <li><a href="/jekyll-clean-dark/2016/04/using-Jekyll">在github上使用jekyll做自己的github pages</a></li>
+    
+    <li><a href="/jekyll-clean-dark/2016/04/change-theme-in-Jekyll">更换主题Skinny Bones Jekyll Starter</a></li>
+    
+    <li><a href="/jekyll-clean-dark/2015/12/jekyll-clean-theme">Jekyll Dark Clean Theme</a></li>
+    
+    <li><a href="/jekyll-clean-dark/2015/11/text-formatting">Text formatting</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul>
+    
+      <li><a href="/jekyll-clean-dark/tag/jekyll">jekyll</a></li>
+    
+      <li><a href="/jekyll-clean-dark/tag/analytics">analytics</a></li>
+    
+      <li><a href="/jekyll-clean-dark/tag/tags">tags</a></li>
+    
+      <li><a href="/jekyll-clean-dark/tag/comments">comments</a></li>
+    
+      <li><a href="/jekyll-clean-dark/tag/code">code</a></li>
+    
+      <li><a href="/jekyll-clean-dark/tag/images">images</a></li>
+    
+      <li><a href="/jekyll-clean-dark/tag/markdown">markdown</a></li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+      <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Pavel Makhov &copy; 2015</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="streetturtle on Github" href="https://github.com/streetturtle" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+    <li>
+      <a title=" on StackOverflow" href="http://stackoverflow.com/users/" target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title=" on Instagram" href="https://instagram.com/" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+    </li>
+  
+
+  
+    <li>
+      <a title=" on Last.fm" href="http://lastfm.com/user/" target="_blank"><i class="fa fa-lastfm fa-2x"></i></a>
+    </li>
+  
+
+  
+    <li>
+      <a title="feed.xml RSS" href="http://streetturtle.github.io/feed.xml" target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+    </li>
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+</div>

@@ -1,0 +1,268 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Blog Name</title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://streetturtle.github.io/jekyll-clean-dark/js/jquery.min.js"></script>
+  <script src="http://streetturtle.github.io/jekyll-clean-dark/js/bootstrap.min.js"></script>
+  <script src="http://streetturtle.github.io/jekyll-clean-dark/js/header.js"></script>
+  <script src="http://streetturtle.github.io/jekyll-clean-dark/js/toc.js"></script>
+  <link href="http://streetturtle.github.io/jekyll-clean-dark/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://streetturtle.github.io/jekyll-clean-dark/css/theme.css" rel="stylesheet">
+  <link href="http://streetturtle.github.io/jekyll-clean-dark/css/syntax.css" rel="stylesheet">
+  <link href="http://streetturtle.github.io/jekyll-clean-dark/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://streetturtle.github.io/jekyll-clean-dark/">Blog Name</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="http://streetturtle.github.io/jekyll-clean-dark/">/home</a></li>
+          <li><a href="http://streetturtle.github.io/jekyll-clean-dark/archive.html">/archive</a></li>
+          <li><a href="http://streetturtle.github.io/jekyll-clean-dark/tags.html">/tags</a></li>
+          <li><a href="http://streetturtle.github.io/jekyll-clean-dark/about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="wrapper">
+  <div class="content">
+    <div class="container container-center">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="article">
+            <div class="well">
+              <h1><a href="http://streetturtle.github.io/jekyll-clean-dark/2016/04/markdown-language">Markdown基本语法</a></h1>
+              <div class="post-meta">
+                <div class="post-time">
+                  <i class="fa fa-calendar"></i>
+                  <time>16 Apr 2016</time>
+                </div>
+                <ul>
+                  
+                    <li><a href="http://streetturtle.github.io/jekyll-clean-dark/tag/markdown">markdown</a></li>
+                  
+                </ul>
+              </div>
+              <div class="post-content">
+                <div id="toc" class="toc"></div>
+                <h3 id="markdown">Markdown基本语法</h3>
+
+<h3 id="ide">IDE</h3>
+<p>推荐Mou.很多语法Mou的帮助中有的。可以直接导出html pdf格式。而且可以选择导出的主题。</p>
+
+<h3 id="section">基本语法</h3>
+<ul>
+  <li>
+    <h4 id="section-1">标题</h4>
+    <p>用#进行区分标记，几个代表几级标题，＃和标题前加空格。</p>
+  </li>
+  <li>
+    <h4 id="section-2">字体</h4>
+    <p>把字体放在*或者_的两面。比如用 **强调** 表现为 <strong>强调</strong></p>
+  </li>
+  <li>
+    <h4 id="section-3">列表</h4>
+    <p>用 * 表示无序，直接数字表示有序列表。列表可以进行嵌套。可以和其他都可以进行嵌套。</p>
+  </li>
+  <li>
+    <h4 id="section-4">换行</h4>
+    <p>只是使用换行是不行的。需要进行换行后添加2个或者多个空格。才能显示出换行效果。</p>
+  </li>
+  <li>
+    <h4 id="section-5">删除</h4>
+    <p>文字前后各放在2个~~.	 表现<del>Strikethrough</del></p>
+  </li>
+  <li>
+    <h4 id="section-6">引用</h4>
+    <p>用&gt;表示引用。可以使用 &gt; &gt;进行嵌套</p>
+  </li>
+  <li>
+    <h4 id="section-7">內链代码 *</h4>
+    <p>可以把内容放在｀｀内部</p>
+  </li>
+  <li>
+    <h4 id="section-8">链接</h4>
+    <ol>
+      <li>图片 !<a href=""></a>{ImgCap}{/ImgCap}</li>
+      <li>链接地址 用法An [example](http://url.com/ “Title”) 表现An <a href="http://url.com/" title="Title">example</a></li>
+      <li>邮箱 An email &lt;example@example.com&gt; link. 表现 An email <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#101;&#120;&#097;&#109;&#112;&#108;&#101;&#064;&#101;&#120;&#097;&#109;&#112;&#108;&#101;&#046;&#099;&#111;&#109;">&#101;&#120;&#097;&#109;&#112;&#108;&#101;&#064;&#101;&#120;&#097;&#109;&#112;&#108;&#101;&#046;&#099;&#111;&#109;</a> link.</li>
+      <li>锚点 就是在刚才的链接上添加一个id。eg。  [This is an example](id:anchor1)  使用锚点 Click this [link](#anchor1) <a href="#anchor1">link</a></li>
+    </ol>
+  </li>
+  <li>
+    <h4 id="section-9">表格</h4>
+  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Header</th>
+      <th>Second Header</th>
+      <th>Third Header</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Content Cell</td>
+      <td>Content Cell</td>
+      <td>Content Cell</td>
+    </tr>
+    <tr>
+      <td>Content Cell</td>
+      <td>Content Cell</td>
+      <td>Content Cell</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>
+    <h4 id="header">Header</h4>
+    <p>使用header1  ======  header2 ——</p>
+  </li>
+  <li>
+    <h4 id="section-10">补充说明或者叫脚注</h4>
+    <p>That’s some text with a footnote.[<br />
+^1]<br />
+[^1]: And that’s the footnote.</p>
+  </li>
+</ul>
+
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 hidden-xs">
+          <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="/jekyll-clean-dark/2016/04/markdown-language">Markdown基本语法</a></li>
+    
+    <li><a href="/jekyll-clean-dark/2016/04/using-Jekyll">在github上使用jekyll做自己的github pages</a></li>
+    
+    <li><a href="/jekyll-clean-dark/2016/04/change-theme-in-Jekyll">更换主题Skinny Bones Jekyll Starter</a></li>
+    
+    <li><a href="/jekyll-clean-dark/2015/12/jekyll-clean-theme">Jekyll Dark Clean Theme</a></li>
+    
+    <li><a href="/jekyll-clean-dark/2015/11/text-formatting">Text formatting</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul>
+    
+      <li><a href="/jekyll-clean-dark/tag/jekyll">jekyll</a></li>
+    
+      <li><a href="/jekyll-clean-dark/tag/analytics">analytics</a></li>
+    
+      <li><a href="/jekyll-clean-dark/tag/tags">tags</a></li>
+    
+      <li><a href="/jekyll-clean-dark/tag/comments">comments</a></li>
+    
+      <li><a href="/jekyll-clean-dark/tag/code">code</a></li>
+    
+      <li><a href="/jekyll-clean-dark/tag/images">images</a></li>
+    
+      <li><a href="/jekyll-clean-dark/tag/markdown">markdown</a></li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+      <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Pavel Makhov &copy; 2015</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="streetturtle on Github" href="https://github.com/streetturtle" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+    <li>
+      <a title=" on StackOverflow" href="http://stackoverflow.com/users/" target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title=" on Instagram" href="https://instagram.com/" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+    </li>
+  
+
+  
+    <li>
+      <a title=" on Last.fm" href="http://lastfm.com/user/" target="_blank"><i class="fa fa-lastfm fa-2x"></i></a>
+    </li>
+  
+
+  
+    <li>
+      <a title="feed.xml RSS" href="http://streetturtle.github.io/feed.xml" target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+    </li>
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+</div>

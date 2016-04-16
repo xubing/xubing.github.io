@@ -1,6 +1,7 @@
 ---
 layout:  post
 title:  Markdown基本语法
+tags: markdown
 ---
 
 ### Markdown基本语法

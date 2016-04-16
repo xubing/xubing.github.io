@@ -1,0 +1,200 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Blog Name</title>
+  <meta name="theme-color" content="#222222" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://streetturtle.github.io//js/jquery.min.js"></script>
+  <script src="http://streetturtle.github.io//js/bootstrap.min.js"></script>
+  <script src="http://streetturtle.github.io//js/header.js"></script>
+  <script src="http://streetturtle.github.io//js/toc.js"></script>
+  <link href="http://streetturtle.github.io//css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://streetturtle.github.io//css/theme.css" rel="stylesheet">
+  <link href="http://streetturtle.github.io//css/syntax.css" rel="stylesheet">
+  <link href="http://streetturtle.github.io//css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  
+
+  
+
+
+ <script type="text/javascript">
+  WebFontConfig = {
+    google: {
+      families: ['Ubuntu::latin']
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://streetturtle.github.io//">Blog Name</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="http://streetturtle.github.io//">/home</a></li>
+          <li><a href="http://streetturtle.github.io//archive.html">/archive</a></li>
+          <li><a href="http://streetturtle.github.io//tags.html">/tags</a></li>
+          <li><a href="http://streetturtle.github.io//about.html">/about</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="wrapper">
+  <div class="content">
+    <div class="container container-center">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="article">
+            <div class="well">
+              <h1><a href="http://streetturtle.github.io//2016/04/using-Jekyll">在github上使用jekyll做自己的github pages</a></h1>
+              <div class="post-meta">
+                <div class="post-time">
+                  <i class="fa fa-calendar"></i>
+                  <time>15 Apr 2016</time>
+                </div>
+                <ul>
+                  
+                </ul>
+              </div>
+              <div class="post-content">
+                <div id="toc" class="toc"></div>
+                <h2 id="section">写在前面的话</h2>
+<p>以前写过不少博客。经常没有坚持下去。地方很分散，很早的csdn，博客园，网易都有。后来在SAE上自己用word press写自己的博客。写了2年后，发现积累了很多，前几天登录发现我的应用居然删除了，所有东西都没了。因为SAE中我以前有别的app，导致云豆欠费后，所有东西清空，欲哭无泪。不仅仅是我的app所有数据没有了，近3年的博客内容都删除了。88 SAE。不骂你，但是我以后不会再碰你了。平时Evernote中也写了几百篇，害怕以后evernote也夸掉，还是用md进行写博客吧。<br />
+	本来想在阿里云或者AWS上弄一个服务器，想想github page还是很好用的，所以就有了这个页面。github page就是username.github.io，这个自己可以创建的。可以查看github中的说明。</p>
+
+<h3 id="jekyll">Jekyll的安装使用</h3>
+<ol>
+  <li>参见https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/的文章。</li>
+  <li>不使用模版的步骤。jekyll new  ，jekyll build，jekyll server ,本地就可以查看了。然后git 提交自己的所有文件。</li>
+  <li>Jekyll的模版。先fork 模版 https://github.com/barryclark/jekyll-now</li>
+  <li>然后在自己的工程中点开setting，然后rename成 username.github.io</li>
+  <li>这个时候访问username.github.io，修改_config.yml文件，然后就可以看到页面了。</li>
+  <li>以后在_post添加文件,year-month-day-title.md这样的命名，然后添加提交，github会帮你进行生成页面。自己不用进行build</li>
+  <li>补充下本地运行。git clone下来自己的工程，切换到目录下，运行jekyll server。我遇到的2个问题是cannot load such file – jekyll-sitemap。 直接gem install jekyll-sitemap。反正缺少哪个文件，就安装哪个文件。然后就可以了。</li>
+  <li>有一个在线工具不错，http://prose.io 想用的也可以尝试下。</li>
+  <li>我用编辑md文件的IDE是Mou，可以一边编辑一边预览。用markdown的一个好处是，即使是不发表在github，mk文件生成的html页面也是很好看的。</li>
+  <li>有的时候本地运行出现错误。可以用sudo gem cleanup ，bundle exec jekyll serve进行清理启动.</li>
+</ol>
+
+
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 hidden-xs">
+          <div class="sidebar ">
+  <h2>Recent Posts</h2>
+  <ul>
+    
+    <li><a href="//2016/04/markdown-language">Markdown基本语法</a></li>
+    
+    <li><a href="//2016/04/using-Jekyll">在github上使用jekyll做自己的github pages</a></li>
+    
+    <li><a href="//2016/04/change-theme-in-Jekyll">更换主题Skinny Bones Jekyll Starter</a></li>
+    
+    <li><a href="//2015/12/jekyll-clean-theme">Jekyll Dark Clean Theme</a></li>
+    
+    <li><a href="//2015/11/text-formatting">Text formatting</a></li>
+    
+  </ul>
+</div>
+
+<div class="sidebar">
+  <h2>Tags</h2>
+  <ul>
+    
+      <li><a href="//tag/jekyll">jekyll</a></li>
+    
+      <li><a href="//tag/analytics">analytics</a></li>
+    
+      <li><a href="//tag/tags">tags</a></li>
+    
+      <li><a href="//tag/comments">comments</a></li>
+    
+      <li><a href="//tag/code">code</a></li>
+    
+      <li><a href="//tag/images">images</a></li>
+    
+      <li><a href="//tag/markdown">markdown</a></li>
+    
+  </ul>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+      <footer class="footer-distributed">
+      <div class="container">
+        <div class="footer">
+          <p>Pavel Makhov &copy; 2015</p>
+          <h6>Follow me</h6>
+
+<ul class="social-media">
+
+  
+    <li>
+      <a title="streetturtle on Github" href="https://github.com/streetturtle" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </li>
+  
+
+  
+    <li>
+      <a title=" on StackOverflow" href="http://stackoverflow.com/users/" target="_blank"><i class="fa fa-stack-overflow fa-2x"></i></a>
+    </li>
+  
+
+  
+
+  
+    <li>
+      <a title=" on Instagram" href="https://instagram.com/" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+    </li>
+  
+
+  
+    <li>
+      <a title=" on Last.fm" href="http://lastfm.com/user/" target="_blank"><i class="fa fa-lastfm fa-2x"></i></a>
+    </li>
+  
+
+  
+    <li>
+      <a title="feed.xml RSS" href="http://streetturtle.github.io/feed.xml" target="_blank"><i class="fa fa-rss fa-2x"></i></a>
+    </li>
+  
+
+</ul>
+
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+</div>
