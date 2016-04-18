@@ -51,5 +51,5 @@ xxxx
 
 {% highlight ruby lineanchors %}
  $ npm whoami 
- $ npm publish --tag 0.1.0
+ $ npm publish 
 {% endhighlight %}
