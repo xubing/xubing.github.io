@@ -43,7 +43,9 @@ Install ``FontAwesome`` from the awesome Joel Oblador's ``react-native-vector-ic
 ```
 
 ```javascript
-<ItemCell title = {"Gender:"} showDisclosureIndicator={true}>
+<ItemCell title = {"Gender:"} showDisclosureIndicator={true}
+onPress ={()=>console.log("pressme")}
+onPressOut ={()=>console.log("pressme out")}>
   Man
 </ItemCell>
 ```
