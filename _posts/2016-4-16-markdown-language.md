@@ -48,8 +48,10 @@ That's some text with a footnote.[
 ------
 ## 常用markdown的小工具
 * toc 可以根据h1到h6自动生成toc，并且可以自动编号.生成带目录的html。 
-```bash
+``` bash
 $ gem install tocmd
+```
+```bash
 $ tocmd -f shiti.md -d ./
 ```
  
