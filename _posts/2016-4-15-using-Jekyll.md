@@ -2,6 +2,7 @@
 layout: post
 title: 在github上使用jekyll做自己的github pages
 description: 使用jekyll，使用markdown写博客。
+comments: true
 ---
 ## 写在前面的话
    以前写过不少博客。经常没有坚持下去。地方很分散，很早的csdn，博客园，网易都有。后来在SAE上自己用word press写自己的博客。写了2年后，发现积累了很多，前几天登录发现我的应用居然删除了，所有东西都没了。因为SAE中我以前有别的app，导致云豆欠费后，所有东西清空，欲哭无泪。不仅仅是我的app所有数据没有了，近3年的博客内容都删除了。88 SAE。不骂你，但是我以后不会再碰你了。平时Evernote中也写了几百篇，害怕以后evernote也夸掉，还是用md进行写博客吧。

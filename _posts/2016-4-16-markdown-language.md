@@ -3,6 +3,7 @@ layout:  post
 title:  Markdown基本语法
 tags: markdown
 description: Markdown基本语法
+comments: true
 ---
 
 ### Markdown基本语法

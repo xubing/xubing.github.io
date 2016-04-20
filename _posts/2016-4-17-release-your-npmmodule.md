@@ -3,6 +3,7 @@ layout:  post
 title:  发布自己的npm包
 tags: npm
 description: 如何发布自己的npm包，注册，init，adduser，whoami，publish ...
+comments: true
 ---
 
 ### 如何发发布自己的npm包
