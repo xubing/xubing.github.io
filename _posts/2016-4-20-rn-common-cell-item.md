@@ -7,6 +7,7 @@ comments: true
 ---
 
 ## 这是一个fork别人的工程，然后稍微修改的组件。主要学习下组件的npm发布，以及react native的组件。
+[github地址](https://github.com/xubing/react-native-common-item-cell/blob/master/README.md)
 
 # react-native-common-item-cell
 A React Native  item cell. The cell grows with the inner text.
