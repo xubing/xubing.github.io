@@ -7,7 +7,7 @@ comments: true
 
 # BlackheartedHospital
 
-网传附莆田系医院名单，欢迎更新.本博客数据来自(github readme文章)<https://github.com/langhua9527/BlackheartedHospital>
+网传附莆田系医院名单，欢迎更新.本博客数据来自[github readme文章]<https://github.com/langhua9527/BlackheartedHospital>
 
 # 版本1.2beta
 
