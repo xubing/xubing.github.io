@@ -1,19 +1,20 @@
 ---
 layout:  post
-title:  ESLint
-tags: ES6 
-description: 检测JS工具
+title:  Javascript
+tags: ES6 Javascript JS 
+description: ES6-JS的简单语法回顾
 comments: true
 ---
 
-### 介绍
-ESLint是一个检测JS的工具，从而早期避免一些bug。详细介绍[参见官网](http://eslint.org/docs/user-guide/getting-started)
+### JS
+es
 
-### 安装
+### 对象  ｛｝
 
-```javascript
-npm install -g eslint
-```
+{% highlight javascript  linenos%}
+
+{% endhighlight javascript %}
+
 #### 设置
 
 ```javascript
@@ -23,7 +24,7 @@ eslint --init
 会有很多提示，比如JSX支持，ES6等，你可以自己进行step by step 生成配置文件。
 我的配置
 
-```javascript
+{% highlight json %}
 {
     "env": {
         "browser": true,
@@ -60,7 +61,7 @@ eslint --init
         ]
     }
 }
-```
+{% highlight json %}
 
 ### 用法
 ```javascript
