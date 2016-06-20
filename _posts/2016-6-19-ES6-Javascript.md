@@ -61,7 +61,7 @@ eslint --init
         ]
     }
 }
-{% highlight json %}
+{% endhighlight json %}
 
 ### 用法
 ```javascript
