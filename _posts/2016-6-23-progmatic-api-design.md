@@ -54,8 +54,8 @@ DELETE /tickets/12/messages/5 - Deletes message #5 for ticket #12
 	PUT /gists/:id/star  
 	DELETE /gists/:id/star
 ``` 
-
 	* 有时实在没法进行影射，可以重新设置一个特殊的资源。
+	
 -  SSL 任何地方，任何时候都需要。Always use SSL. No exceptions.
 -  API文档的文档应该清晰。
 -  版本控制。其实关于放在URL还是header中呢，URL中比较好。
