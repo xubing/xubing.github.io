@@ -25,35 +25,35 @@ comments: true
   
   - 一旦你的资源定义了，你需要定义动作来对它们操作和如何影射到你的API上。RESTful的原则是提供处理CRUD的action的策略。例如：
 
-{% highlight java %}
+```bash
 GET /tickets - Retrieves a list of tickets
 GET /tickets/12 - Retrieves a specific ticket
 POST /tickets - Creates a new ticket
 PUT /tickets/12 - Updates ticket #12
 PATCH /tickets/12 - Partially updates ticket #12
 DELETE /tickets/12 - Deletes ticket #12
-{% endhighlight java %}
+``` 
 
 - 资源名称应该复数。比如  /tickets /tickets/12 
 - 如何处理资源关系。如果关系仅仅是存在另外一个资源中，可以这样。
 
-{% highlight java %}
+```bash
 GET /tickets/12/messages - Retrieves list of messages for ticket #12
 GET /tickets/12/messages/5 - Retrieves message #5 for ticket #12
 POST /tickets/12/messages - Creates a new message in ticket #12
 PUT /tickets/12/messages/5 - Updates message #5 for ticket #12
 PATCH /tickets/12/messages/5 - Partially updates message #5 for ticket #12
 DELETE /tickets/12/messages/5 - Deletes message #5 for ticket #12
-{% endhighlight java %}
+``` 
 
 - 如果actions不能满足当前CRUD操作，有几条建议
 	* 重构action，使它能够像一个资源的field。
 	* 把它看成一个子资源。例如PUT 
 
-{% highlight java %}
+``` bash
 	PUT /gists/:id/star  
 	DELETE /gists/:id/star
-{% endhighlight java %}
+``` 
 
 	* 有时实在没法进行影射，可以重新设置一个特殊的资源。
 -  SSL 任何地方，任何时候都需要。Always use SSL. No exceptions.
@@ -63,14 +63,14 @@ DELETE /tickets/12/messages/5 - Deletes message #5 for ticket #12
 	- Filtering 过滤。对每个fieldyo对应唯一的查询参数。例如 GET /tickets?state=open
 	- Sorting. 类似Fliter，sort用来描述排列规则。复杂的排列规则是一个逗号分隔的列表。负号表示下降排列。
  
- {% highlight java %}
+{% highlight java %}
  	GET /tickets?sort=-priority - Retrieves a list of tickets in descending order of priority
  	GET /tickets?sort=-priority,created_at - Retrieves a list of tickets in descending order of priority. Within a specific priority, older tickets are ordered first 	
 {% endhighlight java %}
  
  - Searching 搜索。如果基本的过滤不能满足的时候，需要进行全文搜索了。添加key来搜索吧 
 
- {% highlight java %}
+{% highlight java %}
 	GET /tickets?sort=-updated_at - Retrieve recently updated tickets
 	GET /tickets?state=closed&sort=-updated_at - Retrieve recently closed tickets
 	GET /tickets?q=return&state=open&sort=-priority,created_at - Retrieve the highest priority open tickets mentioning the word 'return'
@@ -79,9 +79,9 @@ DELETE /tickets/12/messages/5 - Deletes message #5 for ticket #12
  
  - 通过API限制啊返回的field。使用带逗号的fields来查询。
 
- {% highlight java %}
+{% highlight java %}
  GET /tickets?fields=id,subject,customer_name,updated_at&state=open&sort=-updated_at
- {% endhighlight java %}
+{% endhighlight java %}
  
  - 更新和创建需要返回资源表现(resource representation)
  	在post的结果相应中，用201 状态码和包含Location的头部来指向新资源的URL
@@ -90,21 +90,21 @@ DELETE /tickets/12/messages/5 - Deletes message #5 for ticket #12
  - 默认完美打印和gzip支持。
  	返回提供空格会让打印出来的结果容易阅读。可以提供一个查询参数比如?pretty=true来开启完美打印功能。这种数据的额外损耗是非常小的,特别当支持压缩的时候。可以看下损耗的数据。
 
- {% endhighlight java %}
+``` 
 $ curl https://api.github.com/users/veesahni > with-whitespace.txt
 $ ruby -r json -e 'puts JSON JSON.parse(STDIN.read)' < with-whitespace.txt > without-whitespace.txt
 $ gzip -c with-whitespace.txt > with-whitespace.txt.gz
 $ gzip -c without-whitespace.txt > without-whitespace.txt.gz
- {% endhighlight java %}
+``` 
  
  输出数据的大小比较：
  
-{% endhighlight java %}
+``` 
 without-whitespace.txt - 1252 bytes
 with-whitespace.txt - 1369 bytes
 without-whitespace.txt.gz - 496 bytes
 with-whitespace.txt.gz - 509 bytes
-{% endhighlight java %}
+``` 
 
  - 数据不要使用默认分装，除非需要。
  - JSON encoded POST, PUT & PATCH bodies
@@ -115,19 +115,20 @@ with-whitespace.txt.gz - 509 bytes
 	
  - Pagination 分页。
 
- {% endhighlight java %}
+``` 
 Link: <https://api.github.com/user/repos?page=3&per_page=100>; rel="next", <https://api.github.com/user/repos?page=50&per_page=100>; rel="last"
-{% endhighlight java %}
+``` 
 
 - 自动加载相关资源表现（Auto loading related resource representations）
  很多情况下需要加载请求中的相关数据。对开发者来说，不用重复去请求相关的数据，使用一个参数就可以满足这种情况。比如 **embed**或者**expand**	.下面例子中将会展示相关的单独的field
 
-{% endhighlight java %}
+``` 
 GET /tickets/12?embed=customer.name,assigned_user
-{% endhighlight java %}
+``` 
+
 输入可能像这样：
 
-{% endhighlight json %}
+{% highlight json %}
 {
   "id" : 12,
   "subject" : "I have a question!",
@@ -142,7 +143,14 @@ GET /tickets/12?embed=customer.name,assigned_user
 }
 {% endhighlight json %}
 
+- Rate Limiting 访问的频率限制
+	
+	At a minimum, include the following headers (using Twitter's naming conventions as headers typically don't have mid-word capitalization):
 
+	* X-Rate-Limit-Limit - The number of allowed requests in the current period
+	* X-Rate-Limit-Remaining - The number of remaining requests in the current period
+	* X-Rate-Limit-Reset - The number of seconds left in the current period
+- 
  
 
 
