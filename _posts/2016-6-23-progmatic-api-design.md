@@ -49,13 +49,11 @@ DELETE /tickets/12/messages/5 - Deletes message #5 for ticket #12
 - 如果actions不能满足当前CRUD操作，有几条建议
 	* 重构action，使它能够像一个资源的field。
 	* 把它看成一个子资源。例如PUT 
-
 ``` bash
-	PUT /gists/:id/star  
-	DELETE /gists/:id/star
+PUT /gists/:id/star  
+DELETE /gists/:id/star
 ``` 
 	* 有时实在没法进行影射，可以重新设置一个特殊的资源。
-	
 -  SSL 任何地方，任何时候都需要。Always use SSL. No exceptions.
 -  API文档的文档应该清晰。
 -  版本控制。其实关于放在URL还是header中呢，URL中比较好。
