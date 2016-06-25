@@ -59,6 +59,23 @@ DELETE /gists/:id/star
 -  版本控制。其实关于放在URL还是header中呢，URL中比较好。
 -  资源的过滤 排列和搜索
 	- Filtering 过滤。对每个fieldyo对应唯一的查询参数。例如 GET /tickets?state=open
+	
+	```
+	GET /api/v1/users?fields=id,first_name
+	```
+	响应：
+{% highlight json %}	
+[
+  {
+    "id": "543abc",
+    "first_name:": "John"
+  },
+  {
+    "id": "543add",
+    "first_name:": "Bob"
+  }
+]
+{% endhighlight json %}	
 	- Sorting. 类似Fliter，sort用来描述排列规则。复杂的排列规则是一个逗号分隔的列表。负号表示下降排列。
  
 {% highlight java %}
@@ -180,4 +197,5 @@ $ curl -u email:password https://site.enchant.com/api/v1/users/543abc \
 415 Unsupported Media Type - If incorrect content type was provided as part of the request
 422 Unprocessable Entity - Used for validation errors
 429 Too Many Requests - When a request is rejected due to rate limiting
+500, 501, 502, 503, etc - An internal server error occured
 {% endhighlight java %}
