@@ -100,6 +100,16 @@ DELETE /gists/:id/star
  
  - 更新和创建需要返回资源表现(resource representation)
  	在post的结果相应中，用201 状态码和包含Location的头部来指向新资源的URL
+
+{% highlight json %}
+ {
+  "id": "5338df",
+  "name": "MyFile.zip",
+  "type": "application/zip",
+  "size": 197
+}
+{% endhighlight json %}
+
  - JSON only responses
  - field名称用蛇形命名而不是骆驼命名法。蛇形命名方法更容易阅读。
  - 默认完美打印和gzip支持。
@@ -133,7 +143,23 @@ with-whitespace.txt.gz - 509 bytes
 ``` 
 Link: <https://api.github.com/user/repos?page=3&per_page=100>; rel="next", <https://api.github.com/user/repos?page=50&per_page=100>; rel="last"
 ``` 
-
+ An API that requires sending a count can use a custom HTTP header like **X-Total-Count**.
+ 
+ ```
+ GET /api/v1/tickets?count=true
+ ```
+响应：
+{% highlight java %}
+200 OK
+Total-Count: 135
+Rate-Limit-Limit: 100
+Rate-Limit-Remaining: 98
+Rate-Limit-Used: 2
+Rate-Limit-Reset: 20
+Content-Type: application/json
+{% endhighlight java %}
+ 
+ 
 - 自动加载相关资源表现（Auto loading related resource representations）
  很多情况下需要加载请求中的相关数据。对开发者来说，不用重复去请求相关的数据，使用一个参数就可以满足这种情况。比如 **embed**或者**expand**	.下面例子中将会展示相关的单独的field
 
