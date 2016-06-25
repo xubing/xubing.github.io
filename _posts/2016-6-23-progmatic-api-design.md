@@ -54,6 +54,7 @@ DELETE /tickets/12/messages/5 - Deletes message #5 for ticket #12
 	PUT /gists/:id/star  
 	DELETE /gists/:id/star
 {% endhighlight java %}
+
 	* 有时实在没法进行影射，可以重新设置一个特殊的资源。
 -  SSL 任何地方，任何时候都需要。Always use SSL. No exceptions.
 -  API文档的文档应该清晰。
@@ -68,6 +69,7 @@ DELETE /tickets/12/messages/5 - Deletes message #5 for ticket #12
 {% endhighlight java %}
  
  - Searching 搜索。如果基本的过滤不能满足的时候，需要进行全文搜索了。添加key来搜索吧 
+
  {% highlight java %}
 	GET /tickets?sort=-updated_at - Retrieve recently updated tickets
 	GET /tickets?state=closed&sort=-updated_at - Retrieve recently closed tickets
@@ -76,9 +78,11 @@ DELETE /tickets/12/messages/5 - Deletes message #5 for ticket #12
  
  
  - 通过API限制啊返回的field。使用带逗号的fields来查询。
+
  {% highlight java %}
  GET /tickets?fields=id,subject,customer_name,updated_at&state=open&sort=-updated_at
  {% endhighlight java %}
+ 
  - 更新和创建需要返回资源表现(resource representation)
  	在post的结果相应中，用201 状态码和包含Location的头部来指向新资源的URL
  - JSON only responses
@@ -86,21 +90,22 @@ DELETE /tickets/12/messages/5 - Deletes message #5 for ticket #12
  - 默认完美打印和gzip支持。
  	返回提供空格会让打印出来的结果容易阅读。可以提供一个查询参数比如?pretty=true来开启完美打印功能。这种数据的额外损耗是非常小的,特别当支持压缩的时候。可以看下损耗的数据。
 
- {% endhighlight bash %}
+ {% endhighlight java %}
 $ curl https://api.github.com/users/veesahni > with-whitespace.txt
 $ ruby -r json -e 'puts JSON JSON.parse(STDIN.read)' < with-whitespace.txt > without-whitespace.txt
 $ gzip -c with-whitespace.txt > with-whitespace.txt.gz
 $ gzip -c without-whitespace.txt > without-whitespace.txt.gz
- {% endhighlight bash %}
+ {% endhighlight java %}
  
  输出数据的大小比较：
  
-{% endhighlight bash %}
+{% endhighlight java %}
 without-whitespace.txt - 1252 bytes
 with-whitespace.txt - 1369 bytes
 without-whitespace.txt.gz - 496 bytes
 with-whitespace.txt.gz - 509 bytes
-{% endhighlight bash %}
+{% endhighlight java %}
+
  - 数据不要使用默认分装，除非需要。
  - JSON encoded POST, PUT & PATCH bodies
 	如果你遵守上面的建议的话，你会把所有的输出包装成Json格式。那么API的输入呢。
@@ -109,10 +114,36 @@ with-whitespace.txt.gz - 509 bytes
 	一个接受Json encoded的POST PUT PATCH请求的API应该需要 **Content-Type**头部去设置**application/json**，或者跑出415不支持的状态码
 	
  - Pagination 分页。
- {% endhighlight bash %}
 
+ {% endhighlight java %}
 Link: <https://api.github.com/user/repos?page=3&per_page=100>; rel="next", <https://api.github.com/user/repos?page=50&per_page=100>; rel="last"
-{% endhighlight bash %}
+{% endhighlight java %}
+
+- 自动加载相关资源表现（Auto loading related resource representations）
+ 很多情况下需要加载请求中的相关数据。对开发者来说，不用重复去请求相关的数据，使用一个参数就可以满足这种情况。比如 **embed**或者**expand**	.下面例子中将会展示相关的单独的field
+
+{% endhighlight java %}
+GET /tickets/12?embed=customer.name,assigned_user
+{% endhighlight java %}
+输入可能像这样：
+
+{% endhighlight json %}
+{
+  "id" : 12,
+  "subject" : "I have a question!",
+  "summary" : "Hi, ....",
+  "customer" : {
+    "name" : "Bob"
+  },
+  assigned_user: {
+   "id" : 42,
+   "name" : "Jim",
+  }
+}
+{% endhighlight json %}
+
+
+ 
 
 
 	
