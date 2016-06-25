@@ -150,11 +150,26 @@ GET /tickets/12?embed=customer.name,assigned_user
 	* X-Rate-Limit-Limit - The number of allowed requests in the current period
 	* X-Rate-Limit-Remaining - The number of remaining requests in the current period
 	* X-Rate-Limit-Reset - The number of seconds left in the current period
-- 
- 
+- Authentication 认证相关
+   
+  一个RESTful API 应该无状态的。这也就意味着请求认证不能依赖于cookies或者sesion，每一个请求都应该有相关的授权证书。通常使用SSL，认证证书将会通过一个继承于HTTP Basic Auth的field的随机随机产生的access token。完全可以通过浏览器进行探索检验。如果接受到401无认证的状态码，浏览球会弹出查询证书的提示。
+  OAuth 2使用Bearer tokens也依赖于SSL给他的底层传输加密。
+  支持JSONP的API需要一个第三个验证，因为JSONP不能发功基本的Auth认证或者Bearer tokens，这个时候需要使用一个access_token。注意，这有一个潜在安全问题，查询的时候这个token。
 
+- HTTP status codes
 
-	
-	
-	
-	 
+{% highlight java %}
+200 OK - Response to a successful GET, PUT, PATCH or DELETE. Can also be used for a POST that doesn't result in a creation.
+201 Created - Response to a POST that results in a creation. Should be combined with a Location header pointing to the location of the new resource
+204 No Content - Response to a successful request that won't be returning a body (like a DELETE request)
+304 Not Modified - Used when HTTP caching headers are in play
+400 Bad Request - The request is malformed, such as if the body does not parse
+401 Unauthorized - When no or invalid authentication details are provided. Also useful to trigger an auth popup if the API is used from a browser
+403 Forbidden - When authentication succeeded but authenticated user doesn't have access to the resource
+404 Not Found - When a non-existent resource is requested
+405 Method Not Allowed - When an HTTP method is being requested that isn't allowed for the authenticated user
+410 Gone - Indicates that the resource at this end point is no longer available. Useful as a blanket response for old API versions
+415 Unsupported Media Type - If incorrect content type was provided as part of the request
+422 Unprocessable Entity - Used for validation errors
+429 Too Many Requests - When a request is rejected due to rate limiting
+{% endhighlight java %}
