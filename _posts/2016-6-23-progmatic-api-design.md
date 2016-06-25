@@ -141,6 +141,16 @@ GET /tickets/12?embed=customer.name,assigned_user
 }
 {% endhighlight json %}
 
+- 重载HTTP方法
+	
+	一些客户端智能支持GET POST请求。可以在头部**X-HTTP-Method-Override**中用一个字符串来包含***PUT, PATCH or DELETE***
+
+{% highlight bash %}	
+$ curl -u email:password https://site.enchant.com/api/v1/users/543abc \
+    -X POST \
+    -H "X-HTTP-Method-Override: DELETE"	
+{% endhighlight bash %}	
+
 - Rate Limiting 访问的频率限制
 	
 	At a minimum, include the following headers (using Twitter's naming conventions as headers typically don't have mid-word capitalization):
