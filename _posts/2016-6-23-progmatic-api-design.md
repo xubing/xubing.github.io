@@ -7,8 +7,7 @@ comments: true
 ---
 
 ### 前言
-由于API一旦发布，很难在进行改编。但是在api设计的时候，听从几点建议，将会使你的api适应性特别强
-。
+由于API一旦发布，很难在进行改编。但是在api设计的时候，听从几点建议，将会使你的api适应性特别强。免费转载请注明引用自[Bing's Blog](http://xubing.github.io)
 这篇文章主要参考了
 
  - [这里](http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#restful)。
@@ -68,12 +67,41 @@ DELETE /tickets/12/messages/5 - Deletes message #5 for ticket #12
  	GET /tickets?sort=-priority,created_at - Retrieves a list of tickets in descending order of priority. Within a specific priority, older tickets are ordered first 	
 {% endhighlight java %}
  
- - Searching 搜索。如果几本的过滤不能满足的时候，需要进行全文搜索了。
+ - Searching 搜索。如果基本的过滤不能满足的时候，需要进行全文搜索了。添加key来搜索吧 
+ {% highlight java %}
+	GET /tickets?sort=-updated_at - Retrieve recently updated tickets
+	GET /tickets?state=closed&sort=-updated_at - Retrieve recently closed tickets
+	GET /tickets?q=return&state=open&sort=-priority,created_at - Retrieve the highest priority open tickets mentioning the word 'return'
+{% endhighlight java %}
+ 
+ 
  - 通过API限制啊返回的field。使用带逗号的fields来查询。
- ```
+ {% highlight java %}
  GET /tickets?fields=id,subject,customer_name,updated_at&state=open&sort=-updated_at
- ```
+ {% endhighlight java %}
+ - 更新和创建需要返回资源表现(resource representation)
+ 	在post的结果相应中，用201 状态码和包含Location的头部来指向新资源的URL
  - JSON only responses
+ - field名称用蛇形命名而不是骆驼命名法。蛇形命名方法更容易阅读。
+ - 默认完美打印和gzip支持。
+ 	返回提供空格会让打印出来的结果容易阅读。可以提供一个查询参数比如?pretty=true来开启完美打印功能。这种数据的额外损耗是非常小的,特别当支持压缩的时候。可以看下损耗的数据。
+
+ {% endhighlight bash %}
+$ curl https://api.github.com/users/veesahni > with-whitespace.txt
+$ ruby -r json -e 'puts JSON JSON.parse(STDIN.read)' < with-whitespace.txt > without-whitespace.txt
+$ gzip -c with-whitespace.txt > with-whitespace.txt.gz
+$ gzip -c without-whitespace.txt > without-whitespace.txt.gz
+ {% endhighlight bash %}
+ 
+ 输出数据的大小比较：
+{% endhighlight bash %}
+without-whitespace.txt - 1252 bytes
+with-whitespace.txt - 1369 bytes
+without-whitespace.txt.gz - 496 bytes
+with-whitespace.txt.gz - 509 bytes
+{% endhighlight bash %}
+
+ 	
  - ensure gzip is supported
  - 数据不要使用默认分装，除非需要。
  - JSON encoded POST, PUT & PATCH bodies
