@@ -94,18 +94,26 @@ $ gzip -c without-whitespace.txt > without-whitespace.txt.gz
  {% endhighlight bash %}
  
  输出数据的大小比较：
+ 
 {% endhighlight bash %}
 without-whitespace.txt - 1252 bytes
 with-whitespace.txt - 1369 bytes
 without-whitespace.txt.gz - 496 bytes
 with-whitespace.txt.gz - 509 bytes
 {% endhighlight bash %}
-
- 	
- - ensure gzip is supported
  - 数据不要使用默认分装，除非需要。
  - JSON encoded POST, PUT & PATCH bodies
- - Pagination
+	如果你遵守上面的建议的话，你会把所有的输出包装成Json格式。那么API的输入呢。
+	很多API都在她们请求body中使用URL编码。URL encoding确切看起来请求的body是Key value对，对于简单的查询，这些已经满足工作了。但是URL enconding还是有一些问题的，因为它没有数据类型的概念，它会强制分析整型和布尔型等。更重要的是，它没有继承结构的概念。简单的API，UR encoding是有效的，复杂的API将会坚持JSON作为输入。
+	
+	一个接受Json encoded的POST PUT PATCH请求的API应该需要 **Content-Type**头部去设置**application/json**，或者跑出415不支持的状态码
+	
+ - Pagination 分页。
+ {% endhighlight bash %}
+
+Link: <https://api.github.com/user/repos?page=3&per_page=100>; rel="next", <https://api.github.com/user/repos?page=50&per_page=100>; rel="last"
+{% endhighlight bash %}
+
 
 	
 	
