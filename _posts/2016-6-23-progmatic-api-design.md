@@ -51,10 +51,10 @@ DELETE /tickets/12/messages/5 - Deletes message #5 for ticket #12
 	* 重构action，使它能够像一个资源的field。
 	* 把它看成一个子资源。例如PUT 
 
-	``` bash
+{% highlight java %}
 	PUT /gists/:id/star  
 	DELETE /gists/:id/star
-	```
+{% endhighlight java %}
 	* 有时实在没法进行影射，可以重新设置一个特殊的资源。
 -  SSL 任何地方，任何时候都需要。Always use SSL. No exceptions.
 -  API文档的文档应该清晰。
@@ -63,10 +63,10 @@ DELETE /tickets/12/messages/5 - Deletes message #5 for ticket #12
 	- Filtering 过滤。对每个fieldyo对应唯一的查询参数。例如 GET /tickets?state=open
 	- Sorting. 类似Fliter，sort用来描述排列规则。复杂的排列规则是一个逗号分隔的列表。负号表示下降排列。
  
- ``` bash
+ {% highlight java %}
  	GET /tickets?sort=-priority - Retrieves a list of tickets in descending order of priority
  	GET /tickets?sort=-priority,created_at - Retrieves a list of tickets in descending order of priority. Within a specific priority, older tickets are ordered first 	
- ```
+{% endhighlight java %}
  
  - Searching 搜索。如果几本的过滤不能满足的时候，需要进行全文搜索了。
  - 通过API限制啊返回的field。使用带逗号的fields来查询。
