@@ -26,11 +26,13 @@ PostgreSQL是一个开源的关系数据库。现在更强大，支持Json，还
 	- 官网下载
 	
 	```
+	
 	chmod +x postgresql-9.2.4-1-linux-x64.run 
 	./postgresql-9.2.4-1-linux-x64.run
 	su - postgres
-	 createdb testdb
-	 service postgresql restart
+	createdb testdb
+	service postgresql restart
+	
 	```
 - Mac下更简单，下载dmg，安装。
 
@@ -88,7 +90,6 @@ PostgreSQL是一个开源的关系数据库。现在更强大，支持Json，还
 - 数组类型 Array。PG提供了定义一个table的列作一个可变长度维度的数组的方法。。数组可以内建或者定义。
 
 {% highlight sql %}	
-
 CREATE TABLE monthly_savings (
    name text,
    saving_per_quarter integer[],
@@ -103,9 +104,7 @@ CREATE TABLE monthly_savings (
 );
 
 
-
 SELECT name FROM monhly_savings WHERE saving_per_quarter[2] > saving_per_quarter[4];
-
 
 UPDATE monthly_savings SET saving_per_quarter = '{25000,25000,27000,27000}'
 WHERE name = 'Manisha';
@@ -118,17 +117,17 @@ WHERE name = 'Manisha';
 
 创建方法
 
-```
+{% highlight sql %}	
 CREATE TYPE inventory_item AS (
    name text,
    supplier_id integer,
    price numeric
 );
-```	
+{% endhighlight sql %}	
 
 使用方法：
 
-```
+{% highlight sql %}	
 CREATE TABLE on_hand (
    item inventory_item,
    count integer
@@ -138,7 +137,7 @@ INSERT INTO on_hand VALUES (ROW('fuzzy dice', 42, 1.99), 1000);
 SELECT (item).name FROM on_hand WHERE (item).price > 9.99;
 SELECT (on_hand.item).name FROM on_hand WHERE (on_hand.item).price > 9.99;
 
-```
+{% endhighlight sql %}	
 
 - 范围类型 Range Types
 	- int4range
