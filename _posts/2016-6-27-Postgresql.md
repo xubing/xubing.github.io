@@ -195,7 +195,7 @@ DROP TABLE table_name;
 + PRIMARY Key: Uniquely identifies each row/record in a database table.
 + FOREIGN Key: Constrains data based on columns in other tables.
 {% highlight sql %}		
-	CREATE TABLE COMPANY6(
+CREATE TABLE COMPANY6(
    ID INT PRIMARY KEY     NOT NULL,
    NAME           TEXT    NOT NULL,
    AGE            INT     NOT NULL,
@@ -206,7 +206,7 @@ DROP TABLE table_name;
 + CHECK Constraint: The CHECK constraint ensures that all values in a column satisfy certain conditions.
 
 {% highlight sql %}		
-	CREATE TABLE COMPANY5(
+CREATE TABLE COMPANY5(
    ID INT PRIMARY KEY     NOT NULL,
    NAME           TEXT    NOT NULL,
    AGE            INT     NOT NULL,
@@ -218,7 +218,7 @@ DROP TABLE table_name;
 + EXCLUSION Constraint: The EXCLUDE constraint ensures that if any two rows are compared on the specified column(s) or expression(s) using the specified operator(s), not all of these comparisons will return TRUE.
 
 {% highlight sql %}		
-	CREATE TABLE COMPANY7(
+CREATE TABLE COMPANY7(
    ID INT PRIMARY KEY     NOT NULL,
    NAME           TEXT ,
    AGE            INT   ,
@@ -402,10 +402,10 @@ Join是一种通过两个表的值进行组合fields的方法。
 	这个是INNER JOIN的扩展。SQL 标准定义了3种Outer Joins类型：left right，full。PG都支持。
 	In case of LEFT OUTER JOIN, an inner join is performed first. Then, for each row in table T1 that does not satisfy the join condition with any row in table T2, a joined row is added with null values in columns of T2. Thus, the joined table always has at least one row for each row in T1.
 	
-	{% highlight sql %}	
-	SELECT EMP_ID, NAME, DEPT FROM COMPANY LEFT OUTER JOIN DEPARTMENT
+{% highlight sql %}	
+SELECT EMP_ID, NAME, DEPT FROM COMPANY LEFT OUTER JOIN DEPARTMENT
         ON COMPANY.ID = DEPARTMENT.EMP_ID;
-	{% endhighlight sql %}	
+{% endhighlight sql %}	
 	
 - The RIGHT OUTER JOIN
 	
@@ -430,7 +430,7 @@ SELECT EMP_ID, NAME, DEPT FROM COMPANY FULL OUTER JOIN DEPARTMENT
  UNION 是用来将2个或者多个的查询结果组合成没有任何重复行的结果。为了使用UNION，每一个select必须用选择相同数目的列，相同数目的列表大师，相同的数据类型，并且相同的顺序，但是不必要又相同的长度。
 
 {% highlight sql %}	
-  SELECT EMP_ID, NAME, DEPT FROM COMPANY INNER JOIN DEPARTMENT
+SELECT EMP_ID, NAME, DEPT FROM COMPANY INNER JOIN DEPARTMENT
         ON COMPANY.ID = DEPARTMENT.EMP_ID
    UNION
      SELECT EMP_ID, NAME, DEPT FROM COMPANY LEFT OUTER JOIN DEPARTMENT
@@ -442,24 +442,23 @@ UNION ALL 允许有重复行。
 
    NULL是一个代表缺失值的term。一个在table中的NULL值表现就是一个空。NULL是一个特殊值，不同于zero或者spcae。
    基本语法：
-   {% highlight sql %}
-   CREATE TABLE COMPANY(
+{% highlight sql %}
+CREATE TABLE COMPANY(
    ID INT PRIMARY KEY     NOT NULL,
    NAME           TEXT    NOT NULL,
    AGE            INT     NOT NULL,
    ADDRESS        CHAR(50),
    SALARY         REAL
 );
-
-   {% endhighlight sql %}
+{% endhighlight sql %}
 
 ###  ALIAS
 
 ALIAS 别名。  
 
- {% highlight sql %}
- table 上的语法：
- SELECT column1, column2....
+{% highlight sql %}
+table 上的语法：
+SELECT column1, column2....
 FROM table_name AS alias_name
 WHERE [condition];
 
@@ -499,7 +498,7 @@ PG Triggers 是数据库的回调函数，当特定数据库时间发生的时�
  
  
 {% highlight sql %}
- CREATE  TRIGGER trigger_name [BEFORE|AFTER|INSTEAD OF] event_name
+CREATE  TRIGGER trigger_name [BEFORE|AFTER|INSTEAD OF] event_name
 ON table_name
 [
  -- Trigger logic goes here....
@@ -596,7 +595,7 @@ ROLLBACK;
 PG有smallserial, serial and bigserial类型。它们类似其他数据库中的Auto increment.
 
 {% highlight sql %}
-	CREATE TABLE COMPANY(
+CREATE TABLE COMPANY(
    ID  SERIAL PRIMARY KEY,
    NAME           TEXT      NOT NULL,
    AGE            INT       NOT NULL,
@@ -611,15 +610,14 @@ To allow other roles or users to use it, privileges or permission must be grante
 
 {% highlight sql %}
 	
-	Syntax for GRANT
-	
-	GRANT privilege [, ...]
+Syntax for GRANT：
+
+GRANT privilege [, ...]
 ON object [, ...]
 TO { PUBLIC | GROUP group | username }
 
 eg:
 GRANT ALL ON COMPANY TO manisha;
-
 
 Syntax for REVOKE:
 
@@ -639,8 +637,8 @@ REVOKE ALL ON COMPANY FROM manisha
  - AGE()
 
 {% highlight sql %}
- SELECT AGE(timestamp '2001-04-10', timestamp '1957-06-13');
- {% endhighlight sql %}
+SELECT AGE(timestamp '2001-04-10', timestamp '1957-06-13');
+{% endhighlight sql %}
  	
  - CURRENT DATE/TIME()  
  	CURRENT_DATE  CURRENT_TIME CURRENT_TIMESTAMP LOCALTIME LOCALTIMESTAMP
