@@ -585,6 +585,14 @@ DROP VIEW view_name
 DELETE FROM COMPANY WHERE AGE = 24;
 ROLLBACK;
 
+
+eg: --执行一个函数
+BEGIN;
+select addone(7, 'name', 2, 1, 2, 0, '{}');
+select addone(6, 'name', 2, 1, 2, 0, '{}');
+COMMIT
+
+
 {% endhighlight sql %}
 
 ### LOCKS
@@ -667,6 +675,20 @@ RETURNS return_datatype AS $variable_name$
     [...]
     RETURN { variable_name | value }
   END; LANGUAGE plpgsql;
+  
+  eg:
+  --删除一个函数
+drop FUNCTION addone(x1 integer,x2 char varying,x3 integer,x4 integer,x5 integer,x6 integer,x7 json) 
+--创建一个函数
+CREATE FUNCTION addone(x1 integer,x2 char varying,x3 integer,x4 integer,x5 integer,x6 integer,x7 json) RETURNS integer AS '
+    INSERT INTO public."InfoField"(
+            infoid, name, type, min, max, step, "values")
+    VALUES (x1,x2,x3,x4,x5,x6,x7);
+    select  1;
+' LANGUAGE SQL;
+
+select addone(5, 'name', 2, 1, 2, 0, '{}');
+
  {% endhighlight sql %}
  
 ### Useful Functions
@@ -679,3 +701,16 @@ RETURNS return_datatype AS $variable_name$
  - Numeric
  - String
   
+### Json/Jsonb类型的创建 添加 更新 删除
+
+	
+JSON is primarily intended to store whole documents that do not need to be manipulated inside the RDBMS.
+
+Updating a row in Postgres always writes a new version of the whole row. That's the basic principle of Postgres' MVCC model. From a performance perspective, it hardly matters whether you change a single piece of data inside a JSON object or all of it: a new version of the row has to be written.
+
+所以没有什么比较好的方法直接更新一个json内部的额某个值，而是对这个json整体更新。Jsonb是二进制的，访问速度更快，而结构是json。所以完全可以用Jsonb来定义类型。
+
+具体操作可以参看[这里](https://www.postgresql.org/docs/9.4/static/functions-json.html)
+
+
+
