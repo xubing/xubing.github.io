@@ -703,14 +703,109 @@ select addone(5, 'name', 2, 1, 2, 0, '{}');
   
 ### Json/Jsonb类型的创建 添加 更新 删除
 
+pgsql支持json／Jsonb类型。 更新json值有两种 ，|| 操作符可以覆盖元素值，9.5提供了一个jsonb_set函数也可以修改
+
+```
+jsonb_set(target jsonb, path text[], new_value jsonb[, create_missing boolean])
+```
+path是路径，create_missing true表示不存在的时候，添加。false表示不存在的时候，不添加。
+
++ 删除。通过操作符号 -
++ 格式化jsonb的数据输出 jsonb_pretty
+
+{% highlight sql %}
+
+-- demo 1 
+select '{"name":"francs","age":"31"}'::jsonb || '{"age":"32"}'::jsonb;。
+--demo 2 
+	select jsonb_set('{"name":"francs","age":"31"}'::jsonb,'{age}','"32"'::jsonb,false);
 	
-JSON is primarily intended to store whole documents that do not need to be manipulated inside the RDBMS.
+	
+	
+	--删除 
+	postgres=# SELECT '{"name": "James", "email": "james@localhost"}'::jsonb - 'email';
+     ?column?      
+-------------------
+ {"name": "James"}
+ 
+postgres=# SELECT '["red","green","blue"]'::jsonb - 0;
+     ?column?      
+-------------------
+ ["green", "blue"] 
+ 
+或者 
+SELECT '{"name": "James", "contact": {"phone": "01234 567890", "fax": "01987 543210"}}'::jsonb #- '{contact,fax}'::text[];
 
-Updating a row in Postgres always writes a new version of the whole row. That's the basic principle of Postgres' MVCC model. From a performance perspective, it hardly matters whether you change a single piece of data inside a JSON object or all of it: a new version of the row has to be written.
+	
+{% endhighlight sql %}
 
-所以没有什么比较好的方法直接更新一个json内部的额某个值，而是对这个json整体更新。Jsonb是二进制的，访问速度更快，而结构是json。所以完全可以用Jsonb来定义类型。
+### Serial 自增
 
-具体操作可以参看[这里](https://www.postgresql.org/docs/9.4/static/functions-json.html)
+serial smallserial bigserial 都不是一个新的类型，他是int，然后默认创建一个sequence来维持自动中增长，其实也可以自己手动创建维护这个自动增长。下面是导出的sql自动生成的代码，我手动修改了start 200，步长10，
+
+{% highlight sql %}
+CREATE TABLE yt2 (
+    rank integer NOT NULL,
+    username character varying(20) NOT NULL,
+    password character varying(50) NOT NULL
+);
 
 
+--
+-- TOC entry 195 (class 1259 OID 33030)
+-- Name: yt2_rank_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
 
+CREATE SEQUENCE yt2_rank_seq
+    START WITH 100
+    INCREMENT BY 10
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- TOC entry 2408 (class 0 OID 0)
+-- Dependencies: 195
+-- Name: yt2_rank_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE yt2_rank_seq OWNED BY yt2.rank;
+
+
+--
+-- TOC entry 2289 (class 2604 OID 33035)
+-- Name: rank; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY yt2 ALTER COLUMN rank SET DEFAULT nextval('yt2_rank_seq'::regclass);
+
+
+--这是插入的测试数据
+insert into yt2(username,password) values('u1','p1');
+insert into yt2(username,password) values('u2','p2');
+
+--update
+
+create table TJ(
+id serial,
+value jsonb
+)
+
+insert into TJ(value) VALUES('{"name":"22"}')
+insert into TJ(value) VALUES('{"name":"11"}')
+
+--create function
+CREATE FUNCTION getV() RETURNS jsonb AS '
+    select value from TJ where id = 1
+' LANGUAGE SQL;
+
+--对结果进行操作
+UPDATE public.tj
+   SET value= ( select getV() || '{"name":"33"}'::jsonb)
+ WHERE id = 1;
+ 
+ select * from TJ;
+
+
+{% endhighlight sql %}
