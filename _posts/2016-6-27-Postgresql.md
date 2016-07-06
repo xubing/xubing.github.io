@@ -660,7 +660,7 @@ SELECT AGE(timestamp '2001-04-10', timestamp '1957-06-13');
 
 ### Functions
 
-PG的Functions 比较有名的存储过程。
+。
 
 **Syntax**:
 
@@ -688,6 +688,24 @@ CREATE FUNCTION addone(x1 integer,x2 char varying,x3 integer,x4 integer,x5 integ
 ' LANGUAGE SQL;
 
 select addone(5, 'name', 2, 1, 2, 0, '{}');
+
+
+--返回一个集合 
+CREATE TABLE public.yt
+(
+  rank integer NOT NULL DEFAULT nextval('yt_rank_seq'::regclass),
+  username character varying(20) NOT NULL,
+  password character varying(50) NOT NULL
+)
+
+CREATE or replace FUNCTION getyt() RETURNS setof RECORD AS 
+$BODY$
+    select username from yt;
+$BODY$ 
+LANGUAGE SQL;
+
+select getyt() ;
+
 
  {% endhighlight sql %}
  
@@ -796,16 +814,22 @@ insert into TJ(value) VALUES('{"name":"22"}')
 insert into TJ(value) VALUES('{"name":"11"}')
 
 --create function
-CREATE FUNCTION getV() RETURNS jsonb AS '
+CREATE or replace FUNCTION getV() RETURNS jsonb AS '
     select value from TJ where id = 1
 ' LANGUAGE SQL;
 
 --对结果进行操作
 UPDATE public.tj
-   SET value= ( select getV() || '{"name":"33"}'::jsonb)
- WHERE id = 1;
+   SET value= ( select getV2() || '{"name":"44"}'::jsonb);
+   
  
  select * from TJ;
 
+--返回一个集合
+CREATE FUNCTION getV() RETURNS setof RECORD AS 
+$BODY$
+    select value from TJ;
+$BODY$ 
+LANGUAGE SQL;
 
 {% endhighlight sql %}
