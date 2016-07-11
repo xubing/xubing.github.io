@@ -12,10 +12,9 @@ comments: true
 	
 	运行psql的时候，如果没有密码，可以创建一个666权限的 **$HOME/.pgpass**文件。
 	文件格式
-	
-	``` 
-		# host:port:database:username:password
-		localhost:5432:*:postgres:postgres
 
-	```
+``` 
+	# host:port:database:username:password
+	localhost:5432:*:postgres:postgres
+```
 	
