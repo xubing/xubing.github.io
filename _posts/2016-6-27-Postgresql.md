@@ -38,6 +38,17 @@ PG支持SQL标准的绝大部分，并且提供了很多现在特性：
 	```
 - Mac下更简单，下载dmg，安装。
 
+### 常用命令
+
+```
+\l  展示数据库
+\c dbname username 选择连接某个数据库，用某个用户进行连接
+\d 展示table
+\d tablename 展现table的结构
+\du 展现所有用户
+
+```
+
 ### 基本类型
 
 支持类型很多，而且用户可以通过`CREATE TYPE SQL command`来创建类型。
