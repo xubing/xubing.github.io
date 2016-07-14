@@ -251,4 +251,9 @@ UILocalNotification *notification = [[UILocalNotification alloc] init];
 {% highlight java linenos%}
 	Intent startintent1 = new Intent(s_instance,NotificationService.class);        	stopService(startintent1);
 {% endhighlight java %}  
-      			
+
+* 需要在**AndroidManifest.xml**中添加一个service服务，否则不启动的。我开始坑了我半天才发现。
+* 
+{% highlight xml linenos%}
+<service android:name = "name" android:process=":xxnmae"></service>
+{% endhighlight xml %}  
