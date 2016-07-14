@@ -11,21 +11,21 @@ comments: true
 
 
 ### iOS UILocalNotification 
+
+这个ios的本地通知在框架UIKit中，可以子在iOS 4.0 and later中使用。本地通知可以按照设定的时间进行中展现，系统在计划的时间点进行分发本地通知。虽然类似远程通知，比如播放声音，在icon上显示数字，但是她不用连接远程服务，完全本地奋发的。
 	
-	这个ios的本地通知在框架UIKit中，可以子在iOS 4.0 and later中使用。本地通知可以按照设定的时间进行中展现，系统在计划的时间点进行分发本地通知。虽然类似远程通知，比如播放声音，在icon上显示数字，但是她不用连接远程服务，完全本地奋发的。
+本地通知的主要目的是基于时间的行为。一个app有有限数目的本地通知，系统保持最近的64个同事是活跃的，自动计划。
 	
-	本地通知的主要目的是基于时间的行为。一个app有有限数目的本地通知，系统保持最近的64个同事是活跃的，自动计划。
+  当你创建一个本地通知的时候，你你必须指明特定的日期或者地理区域作为分发通知的触发条件。基于时间的通知可以根据你每天的设置，如果需要，也允许改变时区。基于地理区域的通知是当用户进入或者退出区域的时候进行处罚。通知可以是一次性事件，也可以是每天有计划执行。
 	
-	当你创建一个本地通知的时候，你你必须指明特定的日期或者地理区域作为分发通知的触发条件。基于时间的通知可以根据你每天的设置，如果需要，也允许改变时区。基于地理区域的通知是当用户进入或者退出区域的时候进行处罚。通知可以是一次性事件，也可以是每天有计划执行。
+创建一个UILocalNotification对象后，相关操作函数
 	
-	创建一个UILocalNotification对象后，相关操作函数
-	
-	```
-	 scheduleLocalNotification:
-	 presentLocalNotificationNow:.
-	 cancelLocalNotification:
-	 cancelAllLocalNotifications 	 
-	```
+```
+scheduleLocalNotification:
+presentLocalNotificationNow:.
+cancelLocalNotification:
+cancelAllLocalNotifications 	 
+```
 	
 ### 事件
 	
@@ -39,7 +39,7 @@ comments: true
 ### 代码编写
 
 * 创建
-{% highlight objective-c linenos %}
+{% highlight C++ linenos %}
 UILocalNotification *notification = [[UILocalNotification alloc] init];
         // 设置触发通知的时间
     NSDate *fireDate = [NSDate dateWithTimeIntervalSinceNow:secondes];
@@ -78,10 +78,10 @@ UILocalNotification *notification = [[UILocalNotification alloc] init];
     
         // 执行通知注册  
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];	 
-{% endhighlight objective-c %}
+{% endhighlight C++ %}
 
 * 取消
-{% highlight objective-c linenos %}
+{% highlight C++ linenos %}
     // 获取所有本地通知数组
     NSString* key = [dict objectForKey:@"key"];
     NSArray *localNotifications = [UIApplication sharedApplication].scheduledLocalNotifications;
@@ -102,17 +102,17 @@ UILocalNotification *notification = [[UILocalNotification alloc] init];
     
     
     	 
-{% endhighlight objective-c %}
+{% endhighlight C++ %}
 
 
  * 更新显示的徽章个数
 
-{% highlight objective-c linenos %}
+{% highlight C++ linenos %}
     NSInteger badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
     badge--;
     badge = badge >= 0 ? badge : 0;
     [UIApplication sharedApplication].applicationIconBadgeNumber = badge;
-{% endhighlight objective-c%}
+{% endhighlight C++%}
 
 
 ### Android的本地通知
