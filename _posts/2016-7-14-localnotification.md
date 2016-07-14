@@ -29,12 +29,12 @@ cancelAllLocalNotifications
 	
 ### 事件
 	
-	系统分发本地消息的时候，有几种情况对待。app不在展示或不可见的时候，如果用户点击按钮，会激活app进行登录。
-	 In its application:didFinishLaunchingWithOptions: method, the app delegate can obtain the UILocalNotification object from the launch options dictionary using the **UIApplicationLaunchOptionsLocalNotificationKey** key. 
+系统分发本地消息的时候，有几种情况对待。app不在展示或不可见的时候，如果用户点击按钮，会激活app进行登录。
+	In its application:didFinishLaunchingWithOptions: method, the app delegate can obtain the UILocalNotification object from the launch options dictionary using the **UIApplicationLaunchOptionsLocalNotificationKey** key. 
 	 
-	 When the user selects a custom action, the app delegate’s application:handleActionWithIdentifier:forLocalNotification:completionHandler: method is called to handle the action.
+When the user selects a custom action, the app delegate’s application:handleActionWithIdentifier:forLocalNotification:completionHandler: method is called to handle the action.
 	 
-	 当用户在前端而且可见的时候， the app delegate’s application:didReceiveLocalNotification: is called to process the notification. 系统不会展现任何的警告，dadge ，也不会播放声音。
+当用户在前端而且可见的时候， the app delegate’s application:didReceiveLocalNotification: is called to process the notification. 系统不会展现任何的警告，dadge ，也不会播放声音。
 	 
 ### 代码编写
 
