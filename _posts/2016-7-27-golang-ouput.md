@@ -37,4 +37,16 @@ type PublicUser struct {
 	Password  bool `json:"password,omitempty"`
 }
 
+
+func main()  {
+
+	var p = PublicUser{ &User{ &Model{2000},"bob","12345pwd"},false,false}
+	ret,err := json.Marshal(p)
+	if err != nil {
+		fmt.Println("parse error")
+	}
+	fmt.Println(string(ret)) //{"username":"bob"}
+
+}
+
 {% endhighlight golang %}
