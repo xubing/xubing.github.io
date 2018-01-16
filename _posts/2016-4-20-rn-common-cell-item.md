@@ -41,7 +41,7 @@ import ItemCell from 'react-native-common-item-cell';
 ```
 
 ```javascript
-<ItemCell icon={{uri: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png'}}>
+<ItemCell icon={{uri}}>
   Item
 </ItemCell>
 ```
