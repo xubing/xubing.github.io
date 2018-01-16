@@ -10,11 +10,19 @@ title: About
 ------
 
 ### 一个爱好广泛，工作和爱好都是程序的人。
-* app开发.以前原生iOS开发，现在也在做React Native，Golang相关。
+* 个人创过业。个人全包所有，比较累。有孩子后，重新上班。
+* 对新技术总是充满激情。
+* 从知识的的运用中获取成就感。相信知识可以改变这个世界。
+* 曾经app开发.React Native，Golang相关。
 * 游戏开发 cocos2dx/cocos2dxlua, unity3d,UDK
+* 服务器开发。稍微涉足。
 
 ---
+### 现在感兴趣的
+ * Golang的高并发编程。
+ * 机器学习方面的东西。以后会尝试用google的框架做一个小demo。
 
+---
 ### 语言知识工具，曾用过不少,不局限
 * C++ 以前用的最多
 * lua 现在用多比较多
@@ -23,11 +31,8 @@ title: About
 * Python 现在只用来写脚本用
 * Erlang 已经不在看了。以前特别好看，现在已经用Golang替代他了。
 
----
 
-### 现在用的
- * Progresql 很好的开始
- * Golang的iris框架
+
 
  
 
