@@ -2,6 +2,7 @@
 layout: post
 title: How to install jekyll
 date: 2020-06-04 18:31:19
+tag: jekyll
 summary: jekyll bundle
 categories: jekyll pixyll
 ---
