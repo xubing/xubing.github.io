@@ -18,6 +18,11 @@ social:
   lastfm: ''
   rss: feed.xml
 
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  
 # Google Analytics key, leave blank to ignore
 google_analytics_key:
 # Yandex metrika (https://metrica.yandex.com/) leave blank to ignore or put true to use
