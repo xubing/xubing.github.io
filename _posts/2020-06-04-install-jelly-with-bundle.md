@@ -1,0 +1,16 @@
+---
+layout: post
+title: How to install jekyll
+tag: jekyll
+description: jekyll bundle
+---
+## 传送门
+### Using Jekyll with Bundler
+####  how to using jekyll with bundle 
+* https://jekyllrb.com/tutorials/using-jekyll-with-bundler/
+* cd path/
+* bundle init
+* bundle add jekyll
+* bundle exec jekyll new --force --skip-bundle .
+* bundle install
+* bundle exec jekyll serve

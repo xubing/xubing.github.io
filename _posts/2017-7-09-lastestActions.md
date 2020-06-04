@@ -23,7 +23,7 @@ comments: true
 
 ------
 * 2016-7-28
-	* 上班写游戏。确认微信 微博分享的接口。
+	* 确认微信 微博分享的接口。
 	* Gorm不支持slice，json/jsonb很是麻烦。查看了下，作者没有支持的意愿。换成xorm。
 	* 用xorm tool导出db到model，修改部分字段，可以自动合并。xorm也有很多的bug，给作者提issue了。
 	* 查看了xorm的文档。掌握基本的CRUD操作。xorm的json格式和pgsql中json格式的映射解决。
